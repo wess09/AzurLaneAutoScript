@@ -1,4 +1,72 @@
 {
+  "Dashboard": {
+    "Oil": {
+      "Value": 0,
+      "Limit": 0,
+      "Color": "^000000",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Coin": {
+      "Value": 0,
+      "Limit": 0,
+      "Color": "^FFAA33",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Gem": {
+      "Value": 0,
+      "Color": "^FF3333",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Pt": {
+      "Value": 0,
+      "Color": "^00BFFF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Cube": {
+      "Value": 0,
+      "Color": "^33FFFF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "ActionPoint": {
+      "Value": 0,
+      "Total": 0,
+      "Color": "^0000FF",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "YellowCoin": {
+      "Value": 0,
+      "Color": "^FF8800",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "PurpleCoin": {
+      "Value": 0,
+      "Color": "^7700BB",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Core": {
+      "Value": 0,
+      "Color": "^AAAAAA",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Medal": {
+      "Value": 0,
+      "Color": "^FFDD00",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Merit": {
+      "Value": 0,
+      "Color": "^FFFF00",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "GuildCoin": {
+      "Value": 0,
+      "Color": "^AAAAAA",
+      "Record": "2020-01-01 00:00:00"
+    },
+    "Storage": {
+      "Storage": {}
+    }
+  },
   "Alas": {
     "Emulator": {
       "Serial": "auto",
@@ -42,6 +110,9 @@
     }
   },
   "General": {
+    "YukikazeTaskManager": {
+      "TaskPriorityAdjustment": "Restart\\n> OpsiCrossMonth\\n> Commission > Tactical > Research\\n> Exercise\\n> Dorm > Meowfficer > Guild > Gacha\\n> Reward\\n> ShopFrequent > ShopOnce > Shipyard > Freebies\\n> PrivateQuarters\\n> OpsiExplore\\n> Minigame > Awaken\\n> OpsiAshBeacon\\n> OpsiDaily > OpsiShop > OpsiVoucher\\n> OpsiAbyssal > OpsiStronghold > OpsiObscure > OpsiArchive\\n> Daily > Hard > OpsiAshBeacon > OpsiAshAssist > OpsiMonthBoss\\n> Sos > EventSp > EventA > EventB > EventC > EventD\\n> RaidDaily > CoalitionSp > WarArchives > MaritimeEscort\\n> Event > Event2 > Raid > Hospital > HospitalEvent > Coalition > Main > Main2 > Main3\\n> OpsiMeowfficerFarming\\n> GemsFarming\\n> OpsiHazard1Leveling"
+    },
     "Retirement": {
       "RetireMode": "one_click_retire"
     },
@@ -309,9 +380,11 @@
       "ServerUpdate": "00:00"
     },
     "GemsFarming": {
+      "ChangeFlagship": "ship",
       "CommonCV": "any",
       "ChangeVanguard": "ship",
       "CommonDD": "any",
+      "EquipmentCode": "DD: null\nbogue: null\nhermes: null\nlangley: null\nranger: null",
       "CommissionLimit": true
     },
     "Campaign": {
@@ -342,6 +415,12 @@
       "Fleet2Mode": "combat_auto",
       "Fleet2Step": 2,
       "FleetOrder": "fleet1_all_fleet2_standby"
+    },
+    "Submarine": {
+      "Fleet": 0,
+      "Mode": "do_not_use",
+      "AutoSearchMode": "sub_standby",
+      "DistanceToBoss": "use_open_ocean_support"
     },
     "Storage": {
       "Storage": {}
@@ -1863,7 +1942,8 @@
     "OpsiMeowfficerFarming": {
       "ActionPointPreserve": 1000,
       "HazardLevel": 5,
-      "TargetZone": 0
+      "TargetZone": 0,
+      "StayInZone": false
     },
     "OpsiFleet": {
       "Fleet": 1,
@@ -1883,7 +1963,12 @@
       "ServerUpdate": "00:00, 12:00"
     },
     "OpsiHazard1Leveling": {
-      "TargetZone": 0
+      "TargetZone": 0,
+      "YellowCoinPreserve": 100000,      
+      "SirenResearch_Enable": false,
+      "MinimumActionPointReserve": 200,            
+      "ExecuteFixedPatrolScan": false,
+      "Cl1Filter": "ActionPoint > PurpleCoins"
     },
     "OpsiFleet": {
       "Fleet": 1,
