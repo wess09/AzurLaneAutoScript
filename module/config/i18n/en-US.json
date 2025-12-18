@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "Game Manager(WIP)",
       "help": ""
+    },
+    "VLMGameController": {
+      "name": "VLM Game Controller",
+      "help": "Use Vision-Language Model (AI Vision) to automatically handle game stuck/unknown pages. Requires installing Python libraries (openai/anthropic/google-generativeai) and configuring API Key"
     }
   },
   "Oil": {

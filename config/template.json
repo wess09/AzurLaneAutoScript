@@ -2040,5 +2040,20 @@
     "Storage": {
       "Storage": {}
     }
+  },
+  "VLMGameController": {
+    "VLMGameController": {
+      "Enable": false,
+      "Provider": "openai",
+      "Model": "gpt-4o-mini",
+      "APIKey": "",
+      "BaseURL": "",
+      "MaxRecoveryAttempts": 3,
+      "Timeout": 30,
+      "EnableActionLogging": true
+    },
+    "Storage": {
+      "Storage": {}
+    }
   }
 }

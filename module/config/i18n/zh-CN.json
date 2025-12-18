@@ -277,6 +277,10 @@
     "GameManager": {
       "name": "游戏管理器(未完成)",
       "help": ""
+    },
+    "VLMGameController": {
+      "name": "VLM智能控制器",
+      "help": "使用视觉语言模型（AI视觉）自动处理游戏卡死和未知界面，避免简单重启。需要安装对应的Python库（openai/anthropic/google-generativeai）并配置API Key"
     }
   },
   "Oil": {
