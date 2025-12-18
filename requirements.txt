@@ -97,5 +97,13 @@ zipp==3.6.0               # via importlib-metadata
 zope.event==4.5.0         # via gevent
 zope.interface==5.4.0     # via gevent
 
+
 # The following packages are considered to be unsafe in a requirements file:
 # setuptools
+
+# ==================== VLM Game Controller (Optional) ====================
+# 以下依赖仅在启用 VLM 游戏控制器时需要安装
+# 安装命令: pip install openai anthropic google-generativeai
+openai>=1.0.0           # OpenAI API (GPT-4V, GPT-4o)
+# anthropic>=0.18.0       # Anthropic API (Claude 3.5 Sonnet with vision)
+# google-generativeai>=0.3.0  # Google Gemini API

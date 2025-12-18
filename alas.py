@@ -153,6 +153,38 @@ class AzurLaneAutoScript:
             return False
         except (GameStuckError, GameTooManyClickError) as e:
             logger.error(e)
+            
+            # 尝试使用 VLM 自主恢复（如果启用）
+            if self.config.VLMGameController_Enable:
+                try:
+                    from module.handler.vlm_game_controller import VLMGameController
+                    
+                    logger.info("检测到游戏卡死，尝试使用 VLM 智能恢复...")
+                    controller = VLMGameController(
+                        config=self.config,
+                        device=self.device
+                    )
+                    
+                    success = controller.attempt_recovery(
+                        screenshot=self.device.image,
+                        context={
+                            "task": self.config.task.command,
+                            "error": str(e),
+                            "expected_scene": "根据任务判断"
+                        }
+                    )
+                    
+                    if success:
+                        logger.info("✓ VLM 成功解决游戏卡死问题，继续执行任务")
+                        return True  # 继续当前任务
+                    else:
+                        logger.warning("✗ VLM 无法解决问题，降级到传统重启策略")
+                
+                except Exception as vlm_error:
+                    logger.error(f"VLM 控制器出错: {vlm_error}")
+                    logger.warning("降级到传统重启策略")
+            
+            # 传统处理逻辑：保存错误日志并重启游戏
             self.save_error_log()
             logger.warning(f'Game stuck, {self.device.package} will be restarted in 10 seconds')
             logger.warning('If you are playing by hand, please stop Alas')
@@ -171,8 +203,39 @@ class AzurLaneAutoScript:
             logger.info('Game server may be under maintenance or network may be broken, check server status now')
             self.checker.check_now()
             if self.checker.is_available():
+                # 尝试使用 VLM 识别并处理未知界面（如果启用）
+                if self.config.VLMGameController_Enable:
+                    try:
+                        from module.handler.vlm_game_controller import VLMGameController
+                        
+                        logger.info("检测到未知游戏界面，尝试使用 VLM 识别...")
+                        controller = VLMGameController(
+                            config=self.config,
+                            device=self.device
+                        )
+                        
+                        success = controller.attempt_recovery(
+                            screenshot=self.device.image,
+                            context={
+                                "task": self.config.task.command,
+                                "error": "Unknown game page",
+                                "expected_scene": "主界面或任务相关界面"
+                            }
+                        )
+                        
+                        if success:
+                            logger.info("✓ VLM 成功识别并解决未知界面问题")
+                            return True
+                        else:
+                            logger.warning("✗ VLM 无法处理未知界面")
+                    
+                    except Exception as vlm_error:
+                        logger.error(f"VLM 控制器出错: {vlm_error}")
+                
+                # VLM 失败或未启用，执行原有逻辑
                 logger.critical('Game page unknown')
                 self.save_error_log()
+
                 handle_notify(
                     self.config.Error_OnePushConfig,
                     title=f"Alas <{self.config_name}> crashed",
