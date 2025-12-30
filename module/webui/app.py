@@ -2256,7 +2256,7 @@ class AlasGUI(Frame):
                 # Add timestamp to bypass cache
                 timestamp = int(time.time())
                 resp = requests.get(
-                    f'https://ep.nekro.ai/e/wess09/alas/api/a1?t={timestamp}',
+                    f'https://alascloudapi.nanoda.work/api/get/announcement?t={timestamp}',
                     timeout=10
                 )
                 if resp.status_code == 200:
@@ -2279,14 +2279,14 @@ class AlasGUI(Frame):
             # First check - happens after initial delay (5 seconds)
             check_and_push_announcement()
             # After first check, set delay to 5 minutes for subsequent checks
-            th._task.delay = 600
+            th._task.delay = 1
             yield
             while True:
                 check_and_push_announcement()
                 yield
 
         # Add announcement checker task (initial delay 1 second)
-        self.task_handler.add(announcement_checker(), delay=600)
+        self.task_handler.add(announcement_checker(), delay=1)
 
         # Return to previous page
         if aside not in ["Home", None]:
