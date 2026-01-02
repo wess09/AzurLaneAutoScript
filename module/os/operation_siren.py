@@ -760,12 +760,15 @@ class OperationSiren(OSMap):
             # 每次循环结束后提交CL1数据
             try:
                 from module.statistics.cl1_data_submitter import get_cl1_submitter
-                submitter = get_cl1_submitter()
+                # 获取当前实例名称，确保使用正确的数据文件路径
+                instance_name = self.config.config_name if hasattr(self.config, 'config_name') else None
+                submitter = get_cl1_submitter(instance_name=instance_name)
                 # 不检查时间间隔,每次循环都提交
                 raw_data = submitter.collect_data()
                 if raw_data.get('battle_count', 0) > 0:
                     metrics = submitter.calculate_metrics(raw_data)
                     submitter.submit_data(metrics)
+                    logger.info(f'CL1 data submission queued for instance: {instance_name}')
             except Exception as e:
                 logger.debug(f'CL1 data submission failed: {e}')
 
