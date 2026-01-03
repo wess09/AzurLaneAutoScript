@@ -1446,10 +1446,11 @@ class OSMap(OSFleet, Map, GlobeCamera, StrategicSearchHandler):
                 logger.info('【塞壬Bug利用】核心操作完成，恢复任务切换')
 
             # 返回侵蚀一区域
+            logger.info('【塞壬Bug利用】返回侵蚀一区域')
             self.os_map_goto_globe(unpin=False)
             self.globe_goto(erosion_one_zone, types=('SAFE', 'DANGEROUS'), refresh=True)
             self.zone_init()
-
+            logger.info('【塞壬Bug利用】返回侵蚀一区域完成')
             self.run_auto_search(question=True, rescan='full', after_auto_search=True)
             
             # 发送成功通知
