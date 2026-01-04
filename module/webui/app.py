@@ -530,6 +530,9 @@ class AlasGUI(Frame):
                     exp_per_hour = stats.get_exp_per_hour()
                     today_stats = stats.get_today_stats()
                     
+                    # 从daily_stats获取今日战斗场次
+                    today_battles = today_stats.get('battle_count', 0) if today_stats else 0
+                    
                     labels = ["舰位", "等级", "当前经验(本级)", "总经验", 
                               "目标等级所需经验", "已战斗场次", "还需经验", 
                               "还需出击", "预计时间"]
@@ -537,13 +540,14 @@ class AlasGUI(Frame):
                     rows = []
                     for ship in stats.data.get('ships', []):
                         progress = stats.calculate_progress(ship, target_level, current_battles)
+                        # 使用今日daily_stats的battle_count作为已战斗场次
                         rows.append([
                             progress['position'],
                             progress['level'],
                             progress['current_exp'],
                             progress['total_exp'],
                             progress['target_exp'],
-                            progress['battles_done'],
+                            today_battles,  # 使用今日battle_count而非计算值
                             progress['exp_needed'],
                             progress['battles_needed'],
                             progress['time_needed']
