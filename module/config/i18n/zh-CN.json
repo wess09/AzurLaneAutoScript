@@ -596,6 +596,14 @@
       "save": "保存",
       "upload": "上传",
       "save_and_upload": "保存并上传"
+    },
+    "TelemetryReport": {
+      "name": "遥测数据上报",
+      "help": "启用后将定期向服务器匿名上报 CL1 统计数据（战斗次数、明石遇见概率等匿名数据）ID生成详见源码"
+    },
+    "BugReport": {
+      "name": "Bug 日志上报",
+      "help": "启用后将在遇到异常时向服务器匿名上报 Bug 日志以帮助改进ID生成详见源码"
     }
   },
   "Retirement": {
