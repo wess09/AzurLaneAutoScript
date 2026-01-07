@@ -1,0 +1,392 @@
+/* Theme: Lunar New Year (Spring Festival) */
+/* Festive Red: #D9363E, Gold: #F2C76E, Warm White: #FFFBF0 */
+
+/* Global Settings */
+body {
+    background-color: #FFFBF0 !important; /* Warm creamy background */
+    color: #4A1919 !important; /* Dark brownish-red for text, softer than black */
+    font-family: "Microsoft YaHei", "SimHei", sans-serif;
+    /* Subtle background pattern - Gold Dust / Paper texture */
+    background-image: radial-gradient(#F2C76E 1px, transparent 1px) !important;
+    background-size: 30px 30px !important;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    color: #D9363E !important;
+    font-weight: bold;
+}
+
+p, span, div, label {
+    color: #5D2525;
+}
+
+a {
+    color: #D9363E !important;
+    text-decoration: none;
+    border-bottom: 1px dashed #D9363E;
+    transition: all 0.2s;
+}
+
+a:hover {
+    color: #FF0000 !important;
+    border-bottom-style: solid;
+    text-shadow: 0 0 5px rgba(217, 54, 62, 0.2);
+}
+
+/* Modal Styling */
+.modal-content {
+    background-color: #FFFBF0 !important;
+    border: 2px solid #D9363E !important;
+    border-radius: 12px !important; /* Rounded corners for harmony */
+    box-shadow: 0 8px 25px rgba(217, 54, 62, 0.25) !important;
+    background-image: linear-gradient(to bottom, #fff 0%, #FFFBF0 100%);
+}
+
+.modal-header {
+    background: linear-gradient(90deg, #D9363E, #FF5F5F);
+    border-bottom: 2px solid #F2C76E !important;
+    color: #F2C76E !important;
+    border-radius: 10px 10px 0 0 !important;
+}
+
+.modal-header .modal-title {
+    color: #F2C76E !important;
+    font-weight: bold;
+}
+
+.modal-footer {
+    border-top: 1px solid #F2C76E !important;
+}
+
+/* Common Button Styles - Rounded & Festive */
+.btn {
+    border-radius: 8px !important; /* More rounded */
+    transition: all 0.2s ease-in-out;
+}
+
+/* Menu Buttons */
+.btn-menu {
+    color: #8B4513;
+    border: 1px solid transparent; /* Reserve space for border to prevent jump */
+    background-color: transparent;
+}
+
+.btn-menu:hover {
+    color: #D9363E !important;
+    background-color: rgba(217, 54, 62, 0.05) !important;
+}
+
+.btn-menu-active {
+    background: linear-gradient(135deg, #D9363E 0%, #C41E3A 100%) !important;
+    color: #F2C76E !important;
+    border-color: #D9363E !important;
+    box-shadow: 0 2px 6px rgba(217, 54, 62, 0.3);
+    /* Pill shape */
+    border-radius: 50px !important; 
+}
+
+/* Aside/Sidebar Buttons */
+.btn-aside {
+    border: 1px solid transparent;
+    color: #8B4513;
+    transition: all 0.2s ease-in-out;
+    border-radius: 8px !important;
+    margin-bottom: 4px;
+}
+
+.btn-aside:hover {
+    border-color: rgba(217, 54, 62, 0.3) !important;
+    background-color: rgba(217, 54, 62, 0.05) !important;
+    color: #D9363E !important;
+}
+
+.btn-aside-active {
+    background-color: rgba(255, 255, 255, 0.8) !important;
+    border: 2px solid #D9363E !important;
+    /* Simulated 'Couplet' style border */
+    border-left: 6px solid #D9363E !important;
+    color: #D9363E !important;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(217, 54, 62, 0.15);
+}
+
+/* Functional Switches (off/on) */
+.btn-off {
+    background-color: #ffffff !important;
+    border: 1px solid #E0C0C0 !important;
+    color: #8B4513 !important;
+}
+
+.btn-on {
+    background: linear-gradient(135deg, #D9363E 0%, #B31B1B 100%) !important;
+    border: 1px solid #900 !important;
+    color: #F2C76E !important;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(217, 54, 62, 0.4);
+    text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+.btn-on:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(217, 54, 62, 0.5);
+    color: #FFF !important;
+}
+
+/* Navigator */
+.btn-navigator {
+    background-color: #fff !important;
+    border: 1px solid #F2C76E !important;
+    color: #D9363E !important;
+    box-shadow: 0 2px 4px rgba(242, 199, 110, 0.2);
+}
+
+.btn-navigator:hover {
+    background-color: #D9363E !important;
+    color: #F2C76E !important;
+    border-color: #D9363E !important;
+}
+
+/* Separators - Decorative Line */
+.hr-group {
+    background-color: transparent !important;
+    border-top: 2px dashed #F2C76E !important; /* Gold dashed line */
+    height: 2px !important;
+    opacity: 1 !important;
+    margin: 1.5rem 0 !important;
+}
+
+.hr-task-group-line {
+    border-top: 1px solid #D9363E !important;
+    opacity: 0.3;
+}
+
+.hr-task-group-text {
+    color: #D9363E !important;
+    font-weight: bold;
+    font-size: 1.15em;
+    background-color: transparent;
+    padding: 0 15px;
+    border: 1px solid #F2C76E;
+    border-radius: 15px;
+    background: #FFF;
+}
+
+/* Form Controls */
+.form-control,
+.bootstrap-select > select {
+    border: 1px solid #E0C0C0;
+    border-bottom: 2px solid #D9363E !important;
+    background-color: rgba(255,255,255,0.9) !important;
+    color: #4A1919 !important;
+    border-radius: 4px;
+}
+
+.form-control:focus {
+    background-color: #fff !important;
+    border-color: #F2C76E !important;
+    box-shadow: 0 0 0 0.2rem rgba(242, 199, 110, 0.4) !important;
+}
+
+/* Checkbox */
+input[type="checkbox"] {
+    accent-color: #D9363E;
+    width: 1.3em;
+    height: 1.3em;
+}
+
+/* Select Arrow */
+select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23D9363E' class='bi bi-caret-down-fill' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E") !important;
+}
+
+/* Code & Textarea */
+textarea, .CodeMirror {
+    border: 1px solid #F2C76E !important; /* Gold border for editors */
+    background-color: #fff !important;
+    border-radius: 4px;
+}
+
+/* Logs */
+.container-log {
+    background-color: #fff !important;
+    border: 1px solid #F2C76E;
+    border-left: 4px solid #D9363E;
+    color: #333 !important;
+    box-shadow: inset 0 0 10px rgba(242, 199, 110, 0.1);
+    border-radius: 4px;
+}
+
+pre.rich-traceback-code {
+    background-color: #fff9f9;
+    color: #444;
+    border-left: 3px solid #D9363E;
+}
+
+/* Main Layout Areas */
+#pywebio-scope-content {
+    background-color: #FFFBF0;
+    /* Diamond pattern (Fang Sheng pattern simplified) */
+    background-image: linear-gradient(135deg, #FDF0D0 25%, transparent 25%), linear-gradient(225deg, #FDF0D0 25%, transparent 25%), linear-gradient(45deg, #FDF0D0 25%, transparent 25%), linear-gradient(315deg, #FDF0D0 25%, transparent 25%);
+    background-position: 20px 0, 20px 0, 0 0, 0 0;
+    background-size: 40px 40px;
+    background-repeat: repeat;
+}
+
+/* Cards / Group Containers */
+[id^="pywebio-scope-group_"] {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 1px solid #F2C76E; /* Gold border */
+    border-top: 3px solid #D9363E;
+    border-radius: 8px; /* Softer cards */
+    box-shadow: 0 4px 10px rgba(217, 54, 62, 0.08); /* Warm reddish shadow */
+    margin-bottom: 24px;
+}
+
+/* Sidebar */
+#pywebio-scope-aside {
+    background-color: #FFFBF0; /* Match body bg */
+    border-right: 2px solid #F2C76E; /* Gold separator */
+    background-image: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0));
+}
+
+.aside-icon > * {
+    fill: #D9363E !important;
+    filter: drop-shadow(0px 1px 0px rgba(255,255,255,0.5));
+}
+
+/* Menu */
+#pywebio-scope-menu {
+    background-color: #FFFFFF;
+    border-right: 1px solid #F2C76E;
+    box-shadow: 2px 0 10px rgba(242, 199, 110, 0.1);
+}
+
+/* Header */
+#pywebio-scope-header {
+    background: linear-gradient(135deg, #D9363E 0%, #C41E3A 100%);
+    border-bottom: 3px solid #F2C76E; /* Gold Boarder */
+    box-shadow: 0 4px 12px rgba(217, 54, 62, 0.3);
+    /* Subtle cloud pattern overlay if possible, else just gradient */
+}
+
+[style*="--header-text--"] {
+    color: #F2C76E !important; /* Gold Text */
+    font-weight: 800 !important;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.4);
+    font-family: "Microsoft YaHei", serif; /* Try serif for header if available */
+}
+
+[style*="--header-icon--"] svg path {
+    fill: #F2C76E !important;
+}
+
+/* Status Panels */
+#pywebio-scope-scheduler-bar,
+#pywebio-scope-log-bar,
+#pywebio-scope-log,
+#pywebio-scope-running,
+#pywebio-scope-pending,
+#pywebio-scope-waiting {
+    background-color: #fff;
+    border: 1px solid #F2C76E;
+    border-left: 4px solid #D9363E;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+}
+
+/* Special Text */
+[style*="--arg-title--"] {
+    color: #C41E3A !important;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(to bottom, #D9363E, #F2C76E);
+    border-radius: 5px;
+    border: 2px solid #FFF;
+}
+::-webkit-scrollbar-track {
+    background: #FFFBF0;
+}
+
+/* Toastify Override */
+.toastify {
+    background: linear-gradient(135deg, #D9363E, #FF4500) !important;
+    color: #F2C76E !important;
+    border: 1px solid #F2C76E;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(217, 54, 62, 0.4) !important;
+    font-weight: bold;
+}
+
+/* =========================================
+   Lunar New Year Decorations (Lanterns)
+   ========================================= */
+
+@keyframes lantern-swing {
+    0% { transform: rotate(-5deg); }
+    100% { transform: rotate(5deg); }
+}
+
+/* Lantern Logic: Fixed on top right using body pseudo-elements */
+body::before, body::after {
+    position: fixed;
+    z-index: 100005; /* Highest layer */
+    background-color: #D9363E;
+    border-radius: 16px;
+    
+    /* Gold Caps */
+    border-top: 5px solid #F2C76E;
+    border-bottom: 5px solid #F2C76E;
+    
+    /* Text (Chun/Fu) */
+    color: #F2C76E;
+    font-family: "Kaiti", "STKaiti", "SimKai", serif; /* Calligraphy font */
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 1px 1px rgba(0,0,0,0.3);
+    
+    /* Decorative Tassel and String simulation via shadows/borders */
+    /* Box shadow creates the glowing effect + simplified tassel below */
+    box-shadow: 
+        0 4px 10px rgba(217, 54, 62, 0.5), /* Body Glow */
+        0 20px 0 -8px rgba(217, 54, 62, 0.8), /* Tassel Top */
+        0 35px 0 -12px rgba(217, 54, 62, 0.6); /* Tassel Bottom */
+
+    /* Animation */
+    transform-origin: 50% -10px; /* Swing from top */
+    pointer-events: none; /* Let clicks pass through */
+}
+
+/* Lantern 1: "Spring" (春) */
+body::before {
+    content: "春";
+    width: 60px;
+    height: 50px;
+    font-size: 32px;
+    top: 8px;
+    right: 40px;
+    animation: lantern-swing 3s infinite ease-in-out alternate;
+}
+
+/* Lantern 2: "Fortune" (福) */
+body::after {
+    content: "福";
+    width: 50px;
+    height: 42px;
+    font-size: 26px;
+    top: 5px;
+    right: 110px; /* To the left of the main one */
+    background-color: #C41E3A; /* Slightly different red */
+    animation: lantern-swing 4s infinite ease-in-out alternate-reverse;
+}

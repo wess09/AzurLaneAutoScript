@@ -259,6 +259,8 @@ class AlasGUI(Frame):
         State.deploy_config.Theme = theme
         State.theme = theme
         pywebio_theme = theme if theme in ("default", "dark", "light") else "dark"
+        if theme == "socialism":
+            pywebio_theme = "default"
         webconfig(theme=pywebio_theme)
 
     @use_scope("menu", clear=True)
@@ -864,7 +866,7 @@ class AlasGUI(Frame):
                 with use_scope("screenshot_control_btn", clear=True):
                     put_buttons(
                         [
-                            {"label": "看见了nanoda" if State.display_screenshots else "看不见nanoda", "value": "toggle", "color": "off"},
+                            {"label": "显示" if State.display_screenshots else "隐藏", "value": "toggle", "color": "off"},
                             {"label": "切换雪风大人图片", "value": "switch", "color": "off"},
                         ],
                         onclick=[_toggle_screenshot, _switch_placeholder],
@@ -875,7 +877,7 @@ class AlasGUI(Frame):
                     url = State.advance_placeholder()
                     run_js(f'var img=document.getElementById("screenshot-img"); if(img) {{ img.src="{url}"; img.setAttribute("data-modal-src", "{url}"); }}')
                     gradient = 'linear-gradient(90deg, #00b894, #0984e3)'
-                    toast(t("Gui.Overview.PlaceholderSwitched"), duration=1, position="top", color=gradient)
+                    toast(t("切换雪风大人图片"), duration=1, position="top", color=gradient)
                     run_js(r"""
                         setTimeout(function(){
                             var el = document.querySelector('.toastify.toastify-top.toastify-right') || document.querySelector('.toastify.toastify-top') || document.querySelector('.toastify');
@@ -1885,6 +1887,7 @@ class AlasGUI(Frame):
                     {"label": "Light", "value": "default", "color": "light"},
                     {"label": "Dark", "value": "dark", "color": "dark"},
                     {"label": "Azur Lane", "value": "azurlane", "color": "info"},
+                    {"label": "新春 ", "value": "socialism", "color": "danger"},
                 ],
                 onclick=lambda t: set_theme(t),
             ).style("text-align: center")
@@ -1991,6 +1994,8 @@ class AlasGUI(Frame):
             add_css(filepath_css("dark-alas"))
         elif self.theme == "azurlane":
             add_css(filepath_css("azurlane-alas"))
+        elif self.theme == "socialism":
+            add_css(filepath_css("socialism-alas"))
         else:
             add_css(filepath_css("light-alas"))
 
