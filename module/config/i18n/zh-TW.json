@@ -3811,6 +3811,18 @@
       "name": "無視運行間隔強制運行",
       "help": "開啟後將帶來額外的行動力消耗，一般不用打開，慢慢打就好"
     },
+    "IfSkipSirenResearch": {
+      "name": "OpsiExplore.IfSkipSirenResearch.name",
+      "help": "OpsiExplore.IfSkipSirenResearch.help",
+      "0": "0",
+      "6": "6",
+      "65": "65",
+      "654": "654"
+    },
+    "SkipedSirenResearch": {
+      "name": "OpsiExplore.SkipedSirenResearch.name",
+      "help": "OpsiExplore.SkipedSirenResearch.help"
+    },
     "LastZone": {
       "name": "上一次完成的區域",
       "help": "自動更新的數值，填0可重置進度，重置後自動跳過已開荒的海域\n支援海域ID、國服/國際服/日服/台服海域名稱，例如 \"51\", \"NA海域東南E\", \"NA Ocean SE Sector E\""
