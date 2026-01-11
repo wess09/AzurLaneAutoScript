@@ -1074,6 +1074,7 @@ class OperationSiren(OSMap):
             logger.info(f'Last zone: {self.name_to_zone(last_zone)}, next zone: {order[:1]}')
         elif last_zone == 0:
             logger.info(f'First run, next zone: {order[:1]}')
+            self.config.OpsiExplore_SkipedSirenResearch = ''
         else:
             raise ScriptError(f'Invalid last_zone: {last_zone}')
         if not len(order):
@@ -1100,7 +1101,7 @@ class OperationSiren(OSMap):
                 submarine_call=self.config.OpsiFleet_Submarine)
             self._os_explore_task_delay()
 
-            finished_combat = self.run_auto_search()
+            finished_combat = self.run_auto_search(question = False, rescan = 'full')
             self.config.OpsiExplore_LastZone = zone
             logger.info(f'Zone cleared: {self.name_to_zone(zone)}')
             if finished_combat == 0:
