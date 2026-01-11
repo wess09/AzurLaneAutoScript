@@ -1,6 +1,7 @@
 # 此文件处理大世界（Operation Siren）模式下的地图导航与海域管理。
 # 包括全球地图切换、海域初始化、处理各种地图减益状态以及海域自动搜索的守护逻辑。
 import time
+import inspect
 from sys import maxsize
 
 import inflection
@@ -970,6 +971,31 @@ class OSMap(OSFleet, Map, GlobeCamera, StorageHandler, StrategicSearchHandler):
                 logger.info(f'[预检查] 格子 {grid} 是塞壬研究装置,功能已开启,继续处理')
         return False
 
+    def _should_skip_siren_research_for_explore(self):
+        # 检查月度开荒是否配置跳过塞壬研究装置
+        skip_levle = self.config.cross_get(keys="OpsiExplore.OpsiExplore.IfSkipSirenResearch")
+        if skip_levle == 0:
+            return False
+        
+        # 检查是否由月度开荒调用
+        stack = inspect.stack()
+        is_called_by_os_explore = any(frame.function == '_os_explore' for frame in stack)
+        if not is_called_by_os_explore:
+            return False
+        
+        # 根据海域难度决定是否跳过
+        hazard_level = self.zone.hazard_level
+        if skip_levle == 6 and hazard_level == 6:
+            logger.info(f'[月度开荒] 海域危险度 {hazard_level} = 6, 跳过塞壬研究装置')
+            return True
+        if skip_levle == 65 and hazard_level >= 5:
+            logger.info(f'[月度开荒] 海域危险度 {hazard_level} >= 5, 跳过塞壬研究装置')
+            return True
+        if skip_levle == 654 and hazard_level >= 4:
+            logger.info(f'[月度开荒] 海域危险度 {hazard_level} >= 4, 跳过塞壬研究装置')
+            return True
+        return False
+
     def clear_question(self, drop=None):
         """
         Clear nearly (and 3 grids from above) question marks on radar.
@@ -1393,6 +1419,18 @@ class OSMap(OSFleet, Map, GlobeCamera, StorageHandler, StrategicSearchHandler):
             
             if not self._is_siren_research_enabled:
                 logger.warning('[配置检查] 塞壬研究装置功能已禁用,跳过处理')
+                self._solved_map_event.add('is_scanning_device')
+                return True
+            
+            if self._should_skip_siren_research_for_explore():
+                # 记录已跳过的海域
+                zone_str = f'{self.zone};\n'
+                current_str = self.config.OpsiExplore_SkipedSirenResearch
+                if current_str is None:
+                    self.config.OpsiExplore_SkipedSirenResearch = zone_str
+                else:
+                    self.config.OpsiExplore_SkipedSirenResearch = str(current_str) + zone_str
+                logger.info(f'[月度开荒] 已记录跳过塞壬研究装置的海域: {self.config.OpsiExplore_SkipedSirenResearch}')
                 self._solved_map_event.add('is_scanning_device')
                 return True
             

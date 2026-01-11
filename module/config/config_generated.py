@@ -619,6 +619,8 @@ class GeneratedConfig:
     # Group `OpsiExplore`
     OpsiExplore_SpecialRadar = False
     OpsiExplore_ForceRun = False
+    OpsiExplore_IfSkipSirenResearch = 0  # 0, 6, 65, 654
+    OpsiExplore_SkipedSirenResearch = None
     OpsiExplore_LastZone = 0
 
     # Group `OpsiShop`
